@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .scroll-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scaleY(0);
+            width: 400px;
+            background: floralwhite;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            overflow: hidden;
+            transition: transform 1s ease-in-out;
+        }
+        .scroll-container.active {
+            transform: translate(-50%, -50%) scaleY(1);
+        }
+    </style>
+</head>
+<body onload="unrollScroll()">
+    <header>
+        <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+        <div class="logo">Premier University</div>
+        <div class="user-info">
+            <?php
+            session_start();
+            if (isset($_SESSION['username'])) {
+                echo "Welcome, " . $_SESSION['username'];
+            } else {
+                header("Location: login.html");
+                exit();
+            }
+            ?>
+        </div>
+    </header>
+    
+    <nav class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">CSE</a></li>
+            <li><a href="#">EEE</a></li>
+            <li><a href="#">Mechanical</a></li>
+            <li><a href="#">IT</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <div class="scroll-container" id="scroll">
+            <h2>Register</h2>
+            <form action="register.php" method="POST">
+                <label for="new_username">Student ID:</label>
+                <input type="text" id="new_username" name="new_username" required>
+                
+                <label for="new_password">Password:</label>
+                <input type="password" id="new_password" name="new_password" required>
+                
+                <button type="submit" value="Submit" name="save">Register</button>
+            </form>
+        </div>
+    </main>
+    
+    <footer>
+        <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Help</a></li>
+        </ul>
+    </footer>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("active");
+        }
+
+        function unrollScroll() {
+            document.getElementById("scroll").classList.add("active");
+        }
+    </script>
+</body>
+</html>

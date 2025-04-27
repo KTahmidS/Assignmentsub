@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #e0f2f7, #cce0e5);
+            animation: fadeIn 1s ease-in-out; /* Add fade-in animation */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px; /* More rounded corners */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+        }
+
+        .card-content {
+            padding: 40px; /* More padding */
+        }
+
+        h2 {
+            color: #3498db; /* Blue heading for emphasis */
+            margin-bottom: 25px;
+            animation: slideIn 0.8s ease-out; /* Heading slide-in animation */
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        p {
+            line-height: 1.7; /* Increased line height for better readability */
+            color: #444;
+            animation: fadeInText 1s ease-in-out forwards; /* Text fade-in with delay */
+            opacity: 0; /*Start invisible*/
+        }
+        @keyframes fadeInText {
+            0% {opacity:0;}
+            50% {opacity:0;}
+            100% {opacity:1;}
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-content">
+                <h2>About Our Platform</h2>
+                <p>
+                    Our website is a streamlined platform for university students to submit lab reports and assignments online. Students can register, upload their files, and submit them before the deadline, ensuring timely submissions. Organized by department, the system makes it easy for instructors to manage and grade assignments. Teachers can review submissions, provide feedback, and assign grades efficiently. The platform supports multiple file formats and ensures data security. With a user-friendly interface and seamless access, it simplifies academic submissions for both students and faculty.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
